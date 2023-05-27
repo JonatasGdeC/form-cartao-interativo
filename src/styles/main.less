@@ -1,0 +1,332 @@
+@import 'mapas.less';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk';
+}
+
+.cardFormat(){
+    width: 100%;
+    max-height: 245px;
+    border-radius: 10px;
+}
+
+.buttonFormat(){
+    font-weight: 500;
+    font-size: 18px;
+    color: #colors[corSecundaria];
+    padding: 15px 0;
+    border-radius: 8px;
+    background-color: #colors[corPrimaria];
+    cursor: pointer;
+    transition: all ease 0.5s;
+    border: none;
+
+    &:hover{
+        background-color: #colors[corHoverBotoes];
+        scale: 1.07;
+    }
+}
+
+.cards{
+    max-width: 485px;
+    width: 100%;
+    height: 100vh;
+    background-color: #colors[corPrimaria];
+    color: #colors[corSecundaria];
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+        position: fixed;
+        top: 15vh;
+        left: 11%;
+
+        &-front{
+            .cardFormat();
+            background: #colors[corCardFront];
+            padding: 28px 32px 27px 32px;
+            box-sizing: 0 0 20px #colors[corBoxShadow];
+            transition: all ease .3s;
+
+            &:hover{
+                scale: 1.1
+            }
+
+            &-bolls{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 64px;
+            }
+
+            &-number{
+                font-weight: 500;
+                font-size: 28px;
+                letter-spacing: 3.5px;
+                margin-bottom: 25.5px;
+            }
+
+            &-bottom{
+                display: flex;
+                justify-content: space-between;
+                font-weight: 500;
+                font-size: 14px;
+
+                div{
+                    display: flex;
+                }
+            }
+        }
+
+        &-back{
+            .cardFormat();
+            background: #colors[corCardBack];
+            padding: 23px 0;
+            text-align: center;
+            margin-left: 15%;
+            box-shadow: 0 0 20px #colors[corBoxShadow];
+            transition: all ease .3s;
+            &:hover{
+                scale: 1.1;
+            }
+
+            &-line{
+                background-color: #colors[corLineCardBack];
+                display: block;
+                width: 100%;
+                height: 54px;
+            }
+
+            &-cvc{
+                background-color: #colors[corCVCcardBack];
+                margin: 24px 41px 33px 45px;
+                padding: 10px 16px;
+                text-align: end;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+.form{
+    position: fixed;
+    top: 25vh;
+    left: 60%;
+    max-width: 380px;
+    width: 100%;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+
+        .flex-column{
+            display: flex;
+            flex-direction: column;
+        }
+
+        label{
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 9px;
+            color: #colors[corPrimaria]
+        }
+
+        input{
+            padding: 11px 0 11px 16px;
+            font-weight: 500;
+            font-size: 18px;
+            border: 2px solid #colors[corBordaInput];
+            border-radius: 8px;
+
+            &:focus{
+                outline-color: transparent;
+            }
+        }
+
+        .date-and-cvc{
+            display: flex;
+            gap: 20px;
+
+            input{
+                margin-top: 9px;
+            }
+
+            .inputs-date{
+                display: flex;
+                gap: 10px;
+
+                #exp-date-month, #exp-date-year{
+                    width: 80px;
+                }
+            }
+
+            #card-of-cvc{
+                width: 190px;
+            }
+        }
+
+        button{
+            .buttonFormat();
+        }
+
+        .mensage-error{
+            color: #colors[corMensagemErro];
+            font-weight: 500;
+            font-size: 12px;
+            display: none;
+        }
+
+    }
+
+    .mensage-sucess{
+        text-align: center;
+        display: none;
+        img{
+            margin-bottom: 35px;
+        }
+        h3{
+            font-weight: 500;
+            font-size: 28px;
+            letter-spacing: 3.5px;
+            color: #colors[corPrimaria];
+        }
+        p{
+            margin: 16px 0 48px;
+        }
+        button{
+            .buttonFormat();
+            width: 380px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cards{
+        width: 30%;
+
+        .card-front{
+            width: 285px;
+            height: 155px;
+            padding: 18px 20px 20px 20px;
+
+            &-bolls{
+                margin-bottom: 37px;
+                .bolls-1{
+                    width: 10%;
+                }
+                .bolls-2{
+                    width: 5%;
+                }
+            }
+            &-number{
+                font-size: 18px;
+                letter-spacing: 1px;
+                margin-bottom: 17px;
+            }
+            &-bottom{
+                font-size: 9px;
+                gap: 0;
+                justify-content: space-between;
+                
+            }
+        }
+
+
+        .card-back{
+            width: 285px;
+            height: 155px;
+
+            &-line{
+                height: 34px;
+            }
+
+            &-cvc{
+                padding: 9px 8px;
+                font-size: 9px;
+                margin: 15px 27px 18px 27px;
+            }
+
+            img{
+                width: 40%;
+            }
+        }
+    }
+
+    .form{
+        left: 50%;
+        margin-right: 30px;
+        width: 330px;
+
+        form{
+            .date-and-cvc{
+                .inputs-date{
+                    #exp-date{
+                        width: 72px;
+                    }
+                }
+                #card-of-cvc{
+                    width: 145px;
+                }
+            }
+        }
+
+        .mensage-sucess{
+            button{
+                width: 327px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .form{
+        left: 55%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .cards{
+        max-width: 768px;
+        width: 100%;
+        height: 240px;
+        display: flex;
+        justify-content: center;
+        padding: 32px 16px 0 16px;
+
+        .card{
+            position: relative;
+            top: 0;
+            left: 0;
+            gap: 0;
+        }
+
+        .card-front{
+            position: absolute;
+            top: 110px;
+
+            
+        }
+
+        .card-back{
+            margin-left: 73px;
+        }
+    }
+
+    .form{
+        position: relative;
+        top: 0;
+        left:0;
+        margin: 100px 24px 45px 24px
+    }
+}

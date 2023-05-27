@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive card details form</title>
+    <link rel="stylesheet" href="@@ENDERECO_DO_CSS">
+    <link rel="icon" href="./img/icon-page.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="cards">
+            <div class="card">
+                <div class="card-front">
+                    <div class="card-front-bolls">
+                        <img class="bolls-1" src="./img/boll-1.svg" alt="Circulo Design">
+                        <img class="bolls-2" src="./img/boll-2.svg" alt="Circulo Design">
+                    </div>
+                    <p class="card-front-number" id="card-number">0000 0000 0000 0000</p>
+                    <div class="card-front-bottom">
+                        <p id="card-name">JANE APPLESEED</p>
+                        <div>
+                            <p id="card-month">00</p>
+                            <p>/</p>
+                            <p id="card-year">00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <span class="card-back-line"></span>
+                    <p class="card-back-cvc" id="card-cvc">000</p>
+                    <img src="./img/lines-card-back.svg" alt="Lines">
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <form>
+                <div class="flex-column">
+                    <label for="card-houder-name">Card Houder Name</label>
+                    <input type="text" id="card-houder-name" placeholder="e.g. Jane Aplessed" name="name" maxlength="25">
+                    <p class="mensage-error" id="error-name">This field is required</p>
+                    <p class="mensage-error" id="error-name-with-number">Cannot add numbers here</p>
+                </div>
+                <div class="flex-column">
+                    <label for="card-of-number">Card Number</label>
+                    <input type="text" id="card-of-number" placeholder="e.g 1234 5678 9123 0000" name="number">
+                    <p class="mensage-error" id="error-number">Wrong format, numbers only</p>
+                    <p class="mensage-error" id="qtd-insuficiente">You need to add 16 digits</p>
+                </div>
+                <div class="date-and-cvc">
+                    <div>
+                        <label for="exp-date">Exp. Date (MM/YY)</label>
+                        <div class="flex-column">
+                            <div class="inputs-date">
+                                <input type="text" id="exp-date-month" placeholder="MM" name="month">
+                                <input type="text" id="exp-date-year" placeholder="YY" name="year">
+                            </div>
+                            <div>
+                                <p class="mensage-error" id="error-month-year">Can’t be blank</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="card-cvc">CVC</label>
+                        <input type="text" id="card-of-cvc" placeholder="e.g 123" name="cvc">
+                        <p class="mensage-error" id="error-cvc">Can’t be blank</p>
+                        <p class="mensage-error" id="qtd-insuficiente-cvc">You need to add 3 digits</p>
+                    </div>
+                </div>
+                <button type="submit">Confirm</button>
+            </form>
+            <div class="mensage-sucess">
+                <img src="./img/icon-right.svg" alt="Icone Certo">
+                <h3>THANK YOU!</h3>
+                <p>We’ve added your card details</p>
+                <button type="button" id="continue-mensage-sucess">Continue</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="./scripts/jquery.mask.min.js"></script>
+<script src="@@ENDERECO_DO_JS"></script>
+</html>
